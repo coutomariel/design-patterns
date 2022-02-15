@@ -1,6 +1,11 @@
 package impostos;
 
-public enum Imposto {
-	ICMS,
-	ISS
+import java.math.BigDecimal;
+
+import loja.Orcamento;
+
+public interface Imposto {
+	
+	BigDecimal calculaImposto(Orcamento orcamento);
+
 }
