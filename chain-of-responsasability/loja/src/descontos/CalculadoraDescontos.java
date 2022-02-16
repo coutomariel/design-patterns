@@ -8,13 +8,12 @@ public class CalculadoraDescontos {
 	
 	public BigDecimal calculaDesconto(Orcamento orcamento) {
 		
-		if(orcamento.getQtdItems()>5) {
-			return orcamento.getValor().multiply(new BigDecimal(0.1));
-		} else if(orcamento.getValor().compareTo(new BigDecimal(500.00)) > 0) {
-			return orcamento.getValor().multiply(new BigDecimal(0.06));
-		} else {
-			return BigDecimal.ZERO;
-		}
+		Desconto desconto =  
+				new DescontoMaisCincoItens(
+						new DescontoValorMaiorQuinhentos(
+								new Finish()));
+		
+		return desconto.calculaDesconto(orcamento);
 	}
 
 }
